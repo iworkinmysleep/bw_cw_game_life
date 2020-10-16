@@ -6,6 +6,7 @@ body {
 
 
 .App {
+  font-family: 'Roboto Mono', monospace;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@ span {
 .game_grid {
   width: 50%;
   margin: 0 auto;
+  margin-bottom: 1rem;
   display: grid;
   grid-template-columns: repeat(50, 15px);
 }
@@ -30,3 +32,25 @@ span {
   border: solid 1px black;
 }
 
+.btn_container {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn_container .btn {
+  display: block;
+  width: 8rem;
+  height: 2rem;
+  font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.fa-less-than {
+  font-size: 1.5rem;
+}
+
+.fa-greater-than {
+  font-size: 1.5rem;
+}

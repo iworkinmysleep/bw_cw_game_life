@@ -6,6 +6,8 @@ const Controls = () => {
       <button className='btn'>Play</button>
       <button className='btn'>Pause</button>
       <button className='btn'>Stop</button>
+      <button className='btn'>Random</button>
+
     </div>
   )
 }
