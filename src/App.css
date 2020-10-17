@@ -1,56 +1,109 @@
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-
 .App {
-  font-family: 'Roboto Mono', monospace;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	background-image: linear-gradient(
+		to right bottom,
+		#6897bb,
+		#6892ba,
+		#6a8cb8,
+		#6c86b6,
+		#7080b3,
+		#6b7aaa,
+		#6573a1,
+		#606d98,
+		#526487,
+		#475b76,
+		#3f5266,
+		#394855
+	);
+	font-family: "Roboto Mono", monospace;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 span {
-  font-size: 40px;
+	font-size: 40px;
 }
 
 .game_grid {
-  width: 50%;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-  display: grid;
-  grid-template-columns: repeat(50, 15px);
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	display: grid;
+	grid-template-columns: repeat(50, 1rem);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	border: 2px solid #394855;
 }
 
-.game_grid .cells {
-  width: 15px;
-  height: 15px;
-  border: solid 1px black;
+.cells {
+	width: 15px;
+	height: 15px;
+  border: solid 1px #394855;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  cursor: pointer;
 }
+
+
 
 .btn_container {
-  width: 40%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
+	width: 40%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 4rem;
 }
 
 .btn_container .btn {
-  display: block;
-  width: 8rem;
-  height: 2rem;
-  font-size: 1rem;
-  font-family: 'Roboto Mono', monospace;
+	display: block;
+	width: 8rem;
+	height: 2rem;
+	font-size: 1rem;
+	font-family: "Roboto Mono", monospace;
+	background-color: #7678ad;
+	color: #d0f5ff;
+	border-radius: 0.3rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.4s;
+}
+
+.btn_container .btn:hover {
+  background-color: #394855;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .fa-less-than {
-  font-size: 1.5rem;
+	font-size: 1.3rem;
+	color: #d0f5ff;
 }
 
 .fa-greater-than {
-  font-size: 1.5rem;
+	font-size: 1.3rem;
+	color: #d0f5ff;
+}
+
+.nav {
+	display: flex;
+	width: 40%;
+	justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.nav a {
+	text-decoration: none;
+	font-size: 20px;
+  color: #FCFCD4;
+  transition: 0.4s;
+}
+
+.nav a:hover {
+  transform: scale(1.3);
+  
 }
