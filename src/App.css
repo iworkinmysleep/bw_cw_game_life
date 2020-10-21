@@ -105,5 +105,42 @@ span {
 
 .nav a:hover {
   transform: scale(1.3);
-  
 }
+
+.modal {
+	width: 60%;
+	margin: auto;
+	font-size: 1rem;
+	font-family: "Roboto Mono", monospace;
+	background-color: #ffffff;
+	padding: 2rem;
+	border: 1px solid #6BFBCE;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal .header {
+	width: 100%;
+  border-bottom: 1px dotted #464555;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 5px;
+}
+
+.modal .content {
+	width: 80%;
+	margin: auto;
+	padding: 10px 5px;
+}
+
+.modal .close {
+	cursor: pointer;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  font-size: 1.5rem;
+	background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #6BFBCE;
+}
+

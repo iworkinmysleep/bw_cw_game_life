@@ -39,6 +39,7 @@ const Grid = () => {
 				)}
 			</div>
 			<Controls
+				generations={generations}
 				setGenerations={setGenerations}
 				grid={grid}
 				setGrid={setGrid}
