@@ -34,7 +34,7 @@ span {
 
 .game_grid {
 	margin: 0 auto;
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 	display: grid;
 	grid-template-columns: repeat(50, 1rem);
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);

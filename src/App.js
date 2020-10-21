@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import "./App.css";
-import Canvas from "./components/Canvas";
+import Grid from "./components/Grid";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 				<a href="#">Rules</a>
 				<a href="#">About</a>
 			</div>
-			<Canvas />
+			<Grid />
 		</div>
 	);
 }
