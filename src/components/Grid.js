@@ -13,13 +13,17 @@ const Grid = () => {
 			rows.push(Array.from(Array(colCells), () => 0));
 		}
 		return rows;
-  });
-  
+	});
 
 	return (
 		<>
 			<h3>Generations: {generations}</h3>
-			<div className="game_grid">
+			<div
+				className="game_grid"
+				style={{
+					display: "grid",
+					gridTemplateColumns: `repeat(${colCells}, 1rem)`,
+				}}>
 				{grid.map((rows, r) =>
 					rows.map((cols, c) => (
 						<div
@@ -43,8 +47,8 @@ const Grid = () => {
 				setGenerations={setGenerations}
 				grid={grid}
 				setGrid={setGrid}
-        rowCells={rowCells}
-        colCells={colCells}
+				rowCells={rowCells}
+				colCells={colCells}
 			/>
 		</>
 	);

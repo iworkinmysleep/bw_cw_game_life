@@ -79,40 +79,64 @@ const Controls = ({
 	}, []);
 
 	return (
-		<div className="btn_container">
-			<button
-				className="btn"
-				onClick={() => {
-					setPlaying(!playing);
-					if (!playing) {
-						playingRef.current = true;
-						initialize();
-					}
-				}}>
-				{playing ? "Stop" : "Play"}
-			</button>
-			<button
-				className="btn"
-				onClick={() => {
-					const rows = [];
-					for (let r = 0; r < rowCells; r++) {
-						rows.push(
-							Array.from(Array(colCells), () => (Math.random() > 0.7 ? 1 : 0))
-						);
-					}
-					setGrid(rows);
-				}}>
-				Seed
-			</button>
-			<button
-				className="btn"
-				onClick={() => {
-					setGrid(resetGrid());
-					setGenerations(0);
-				}}>
-				Clear
-			</button>
-		</div>
+		<>
+			<div className="btn_container">
+				<button
+					className="btn"
+					onClick={() => {
+						setPlaying(!playing);
+						if (!playing) {
+							playingRef.current = true;
+							initialize();
+						}
+					}}>
+					{playing ? "Stop" : "Play"}
+				</button>
+				<button className="btn" onclick={() => {}}>
+					Step
+				</button>
+				<button
+					className="btn"
+					onClick={() => {
+						const rows = [];
+						for (let r = 0; r < rowCells; r++) {
+							rows.push(
+								Array.from(Array(colCells), () => (Math.random() > 0.7 ? 1 : 0))
+							);
+						}
+						setGrid(rows);
+					}}>
+					Seed
+				</button>
+				<button
+					className="btn"
+					onClick={() => {
+						setGrid(resetGrid());
+						setGenerations(0);
+					}}>
+					Clear
+				</button>
+				<label htmlFor="speed">
+					Speed
+					<select className="btn" name="speed">
+						<option value="Fast">Fast</option>
+						<option value="Medium">Medium</option>
+						<option value="Slow">Slow</option>
+					</select>
+				</label>
+				<label htmlFor="size">
+					Patterns
+					<select className="btn" name="size">
+						<option value="glider">Glider</option>
+						<option value="pulsar">Pulsar</option>
+						<option value="beacon">Beacon</option>
+						<option value="penta">Penta-decathlon</option>
+						<option value="spaceship">Spaceship</option>
+						<option value="toad">Toad</option>
+					</select>
+				</label>
+			</div>
+		</>
 	);
 };
 
