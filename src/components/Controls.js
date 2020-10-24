@@ -1,8 +1,6 @@
 import produce from "immer";
 import React, { useState, useCallback, useRef } from "react";
 
-const speed = 400;
-
 const positions = [
 	[0, 1],
 	[0, -1],
@@ -13,6 +11,8 @@ const positions = [
 	[1, 0],
 	[-1, 0],
 ];
+
+let speed = 300;
 
 const Controls = ({
 	rowCells,
@@ -37,11 +37,18 @@ const Controls = ({
 		return rows;
 	};
 
-	// Logic that makes game work
-	const initialize = useCallback(() => {
-		if (!playingRef.current) {
-			return;
+	const Seed = () => {
+		const rows = [];
+		for (let r = 0; r < rowCells; r++) {
+			rows.push(
+				Array.from(Array(colCells), () => (Math.random() > 0.7 ? 1 : 0))
+			);
 		}
+		setGrid(rows);
+	};
+
+	// Logic that makes game work
+	const step = useCallback(() => {
 		setGrid((currentGrid) => {
 			return produce(currentGrid, (updateGrid) => {
 				//loop through every cell
@@ -74,6 +81,14 @@ const Controls = ({
 			});
 		});
 		setGenerations(++generationsRef.current);
+	}, []);
+
+	const initialize = useCallback(() => {
+		if (!playingRef.current) {
+			return;
+		}
+
+		step();
 
 		setTimeout(initialize, speed);
 	}, []);
@@ -92,22 +107,27 @@ const Controls = ({
 					}}>
 					{playing ? "Stop" : "Play"}
 				</button>
-				<button className="btn" onclick={() => {}}>
+				<button className="btn" onClick={Seed}>
+					Seed
+				</button>
+				<button className="btn" onClick={step}>
 					Step
 				</button>
 				<button
 					className="btn"
 					onClick={() => {
-						const rows = [];
-						for (let r = 0; r < rowCells; r++) {
-							rows.push(
-								Array.from(Array(colCells), () => (Math.random() > 0.7 ? 1 : 0))
-							);
-						}
-						setGrid(rows);
+						speed = 100;
 					}}>
-					Seed
+					Faster
 				</button>
+				<button
+					className="btn"
+					onClick={() => {
+						speed = 1000;
+					}}>
+					Slower
+				</button>
+
 				<button
 					className="btn"
 					onClick={() => {
@@ -116,25 +136,6 @@ const Controls = ({
 					}}>
 					Clear
 				</button>
-				<label htmlFor="speed">
-					Speed
-					<select className="btn" name="speed">
-						<option value="Fast">Fast</option>
-						<option value="Medium">Medium</option>
-						<option value="Slow">Slow</option>
-					</select>
-				</label>
-				<label htmlFor="size">
-					Patterns
-					<select className="btn" name="size">
-						<option value="glider">Glider</option>
-						<option value="pulsar">Pulsar</option>
-						<option value="beacon">Beacon</option>
-						<option value="penta">Penta-decathlon</option>
-						<option value="spaceship">Spaceship</option>
-						<option value="toad">Toad</option>
-					</select>
-				</label>
 			</div>
 		</>
 	);

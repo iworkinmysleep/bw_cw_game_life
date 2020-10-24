@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState } from "react";
 import Controls from "./Controls";
 import produce from "immer";
 
@@ -17,7 +17,14 @@ const Grid = () => {
 
 	return (
 		<>
-			<h3>Generations: {generations}</h3>
+			<Controls
+				generations={generations}
+				setGenerations={setGenerations}
+				grid={grid}
+				setGrid={setGrid}
+				rowCells={rowCells}
+				colCells={colCells}
+			/>
 			<div
 				className="game_grid"
 				style={{
@@ -42,14 +49,7 @@ const Grid = () => {
 					))
 				)}
 			</div>
-			<Controls
-				generations={generations}
-				setGenerations={setGenerations}
-				grid={grid}
-				setGrid={setGrid}
-				rowCells={rowCells}
-				colCells={colCells}
-			/>
+			<h3>Generations: {generations}</h3>
 		</>
 	);
 };
