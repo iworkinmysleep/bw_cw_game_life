@@ -145,12 +145,10 @@ const Controls = () => {
 				
 			</div>
 			<Grid 
-			rowCells={rowCells}
 			colCells={colCells}
 			grid={grid}
 			setGrid={setGrid}
 			generations={generations}
-			setGenerations={setGenerations}
 			playing={playing}
 			/>
 		</>
