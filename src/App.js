@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Grid from "./components/Grid";
+import Controls from "./components/Controls";
 import Popup from "reactjs-popup";
 
 function App() {
@@ -103,7 +103,8 @@ function App() {
 				</Popup>
 			</div>
 			
-			<Grid />
+			<Controls/>
+			<footer className="footer">Copyright &copy; Jason Hinton 2020</footer>
 		</div>
 	);
 }

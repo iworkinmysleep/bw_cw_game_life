@@ -1,5 +1,6 @@
 import produce from "immer";
 import React, { useState, useCallback, useRef } from "react";
+import Grid from './Grid'
 
 const positions = [
 	[0, 1],
@@ -12,16 +13,20 @@ const positions = [
 	[-1, 0],
 ];
 
+const rowCells = 30;
+const colCells = 50;
 let speed = 300;
 
-const Controls = ({
-	rowCells,
-	colCells,
-	setGrid,
-	generations,
-	setGenerations,
-}) => {
+const Controls = () => {
 	const [playing, setPlaying] = useState(false);
+	const [generations, setGenerations] = useState(0);
+	const [grid, setGrid] = useState(() => {
+		const rows = [];
+		for (let r = 0; r < rowCells; r++) {
+			rows.push(Array.from(Array(colCells), () => 0));
+		}
+		return rows;
+	});
 
 	const playingRef = useRef(playing);
 	playingRef.current = playing;
@@ -110,8 +115,17 @@ const Controls = ({
 				<button className="btn" onClick={Seed}>
 					Seed
 				</button>
-				<button className="btn" onClick={step}>
+				<button className="btn" disabled= {playing} onClick={step}>
 					Step
+				</button>
+				<button
+					className="btn"
+					disabled={playing}
+					onClick={() => {
+						setGrid(resetGrid());
+						setGenerations(0);
+					}}>
+					Clear
 				</button>
 				<button
 					className="btn"
@@ -128,15 +142,17 @@ const Controls = ({
 					Slower
 				</button>
 
-				<button
-					className="btn"
-					onClick={() => {
-						setGrid(resetGrid());
-						setGenerations(0);
-					}}>
-					Clear
-				</button>
+				
 			</div>
+			<Grid 
+			rowCells={rowCells}
+			colCells={colCells}
+			grid={grid}
+			setGrid={setGrid}
+			generations={generations}
+			setGenerations={setGenerations}
+			playing={playing}
+			/>
 		</>
 	);
 };
