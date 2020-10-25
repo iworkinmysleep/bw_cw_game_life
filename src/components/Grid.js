@@ -31,7 +31,7 @@ const Grid = ({ colCells, grid, setGrid, generations, playing }) => {
 				)}
 			</div>
 
-			<h3 style={{ marginTop: "0", color: "#1ec198" }}>
+			<h3 style={{ marginTop: "0", color: "#f9f871" }}>
 				Generations: <span className="gen">{generations}</span>
 			</h3>
 		</>
